@@ -1,0 +1,108 @@
+[data-letters]:before {
+    content:attr(data-letters);
+    display:inline-block;
+    font-size:2em;
+    width:2.5em;
+    height:2.5em;
+    line-height:2.5em;
+    text-align:center;
+    border-radius:50%;
+    background: #2F408F;
+    vertical-align:middle;
+    color:white;
+}
+
+.dt-button {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 0.333em;
+    margin-bottom: 0.333em;
+    padding: 0.5em 1em;
+    border: 1px solid #999;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.88em;
+    line-height: 1.6em;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dt-button:hover {
+    background-color: #2382c3;
+    color: white;
+  }
+
+button.dt-button.disabled, div.dt-button.disabled, a.dt-button.disabled {
+    color: #999;
+    border: 1px solid #d0d0d0;
+    cursor: default;
+    background-color: #f9f9f9;
+    background-image: -webkit-linear-gradient(top, #fff 0%, #f9f9f9 100%);
+    background-image: -moz-linear-gradient(top, #fff 0%, #f9f9f9 100%);
+    background-image: -ms-linear-gradient(top, #fff 0%, #f9f9f9 100%);
+    background-image: -o-linear-gradient(top, #fff 0%, #f9f9f9 100%);
+    background-image: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#f9f9f9');
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #ffffff;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}

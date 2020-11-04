@@ -1,0 +1,85 @@
+@import '../../../node_modules/@syncfusion/ej2-base/styles/material.css';  
+@import '../../../node_modules/@syncfusion/ej2-buttons/styles/material.css';  
+@import '../../../node_modules/@syncfusion/ej2-calendars/styles/material.css';  
+@import '../../../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';  
+@import '../../../node_modules/@syncfusion/ej2-inputs/styles/material.css';  
+@import '../../../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../../../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import "../../../node_modules/@syncfusion/ej2-react-grids/styles/material.css";
+
+/* .highlight {
+    background: #bcdffb;
+}
+
+.tableHeight{
+      min-height: 400px;
+}
+
+.headerSortDown:after,
+.headerSortUp:after {
+  content: ' ';
+  position: relative;
+  left: 2px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 10px;
+  border-top-color: silver;
+}
+
+.headerSortUp:after {
+  bottom: 15px;
+  border-bottom-color: silver;
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
+} */
+
+.e-grid .e-headercell.customcss{
+  /* background-color:  #2382c3; */
+  /* color: white; */
+  background-color:  #e8e9eb;
+  color: black;
+}
+
+.e-grid .e-headercell{
+  padding: 0 5px 0;
+ }
+
+
+
+ /*Modal Dialog*/
+ .modal-full.modal-dialog-scrollable {
+  max-height: calc(100% - 0rem);
+}
+.modal-full.modal-dialog-scrollable .modal-content {
+  max-height: calc(100vh - 0rem);
+}
+
+.modal-content{
+  border-radius: 0;
+  background-color: #e8e9eb;
+}
+.modal-header{
+  padding: 0.4rem 1rem;
+  background-color: #e8e9eb;
+}
+
+.modal-footer{
+  padding: .1rem;
+  background-color: #e8e9eb;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
