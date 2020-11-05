@@ -6,6 +6,6 @@ export const DATAACTIONS = {
 
 export const VISITLOGSTEPS = {
     STEP1: 'step1',
-    STEP2: 'step12',
+    STEP2: 'step2',
     STEP3: 'step3'
 }

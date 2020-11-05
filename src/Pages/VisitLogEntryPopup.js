@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import SelectSearch from 'react-select-search';
+import Webcam from "react-webcam";
+
 import FormValidator from '../Components/FormValidator';
 import TextInput from '../Components/TextInput'
 
 import { VISITLOGSTEPS } from '../Helpers/CommonEnums'
+import When from '../Helpers/WhenStatement'
 
 import * as VisitorServices from '../Api/VisitorServices'
 import * as HostServices from '../Api/HostServices'
@@ -31,6 +34,7 @@ class VisitLogEntryPopup extends Component {
             visitorname: "",
             visitor_mobile_number: "",
             visitor_email: "",
+            visitor_image: null,
             hostid: "",
             hostname: "",
             loading: false,
@@ -53,6 +57,7 @@ class VisitLogEntryPopup extends Component {
                 visitorname: props.selectedVisit.visitorid.fullname,
                 visitor_mobile_number: props.selectedVisit.visitorid.property.mobile_number,
                 visitor_email_id: props.selectedVisit.visitorid.property.email,
+                visitor_image: null,
                 hostid: props.selectedVisit.hostid._id,
                 hostname: props.selectedVisit.hostid.fullname,
                 loading: false,
@@ -67,6 +72,7 @@ class VisitLogEntryPopup extends Component {
                 visitorname: "",
                 visitor_mobile_number: "",
                 visitor_email: "",
+                visitor_image: null,
                 hostid: "",
                 hostname: "",
                 loading: false,
@@ -176,8 +182,17 @@ class VisitLogEntryPopup extends Component {
         this.setState({ visitLogStep: step, submitted: false });
     }
 
+    setRef = webcam => {
+        this.webcam = webcam;
+    };
+
+    capture = () => {
+        const imageSrc = this.webcam.getScreenshot();
+        this.setState({ visitor_image: imageSrc })
+    };
+
     render() {
-        const { visitLogStep, showPopup, visitorList, hostList, _id, visitorid, visitorname, visitor_mobile_number, visitor_email, hostid, hostname, loading, submitted } = this.state
+        const { visitLogStep, showPopup, visitorList, hostList, _id, visitorid, visitorname, visitor_mobile_number, visitor_email, visitor_image, hostid, hostname, loading, submitted } = this.state
         const validation = submitted ? this.validator.validate(this.state) : this.state.validation
 
         const hostDropdown = hostList.map(host => (
@@ -186,6 +201,12 @@ class VisitLogEntryPopup extends Component {
                 value: host._id
             }
         ))
+
+        const videoConstraints = {
+            width: 1280,
+            height: 720,
+            facingMode: "user"
+        };
 
         return (
             <>
@@ -204,7 +225,7 @@ class VisitLogEntryPopup extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="container mt-3" >
-                                    {visitLogStep === VISITLOGSTEPS.STEP1 ?
+                                    {visitLogStep === VISITLOGSTEPS.STEP1 &&
                                         <TextInput
                                             labelText="Mobile Number"
                                             required={true}
@@ -214,7 +235,8 @@ class VisitLogEntryPopup extends Component {
                                             onChangeCallBack={this.onChangeValue}
                                             validationMessage={validation.visitor_mobile_number.message}
                                         />
-                                        :
+                                    }
+                                    {visitLogStep === VISITLOGSTEPS.STEP2 &&
                                         <>
                                             <TextInput
                                                 labelText="Visitor Name"
@@ -242,7 +264,7 @@ class VisitLogEntryPopup extends Component {
                                                 onChangeCallBack={this.onChangeValue}
                                             />
                                             <div className="form-group row">
-                                                <label htmlFor="host" className="col-sm-4 col-form-label">Host<span style={{ color: 'red' }}>*</span></label>
+                                                <label htmlFor="host" className="col-sm-4 col-form-label">Host<span style={{ color: 'red' }}>*</span> &nbsp;:</label>
                                                 <div className="col-sm-8">
                                                     <SelectSearch
                                                         options={hostDropdown}
@@ -258,19 +280,35 @@ class VisitLogEntryPopup extends Component {
                                             </div>
                                         </>
                                     }
+
+                                    <When condition={visitLogStep === VISITLOGSTEPS.STEP3 && visitor_image === null}>
+                                        <Webcam
+                                            audio={false}
+                                            height={350}
+                                            ref={this.setRef}
+                                            screenshotFormat="image/jpeg"
+                                            width={350}
+                                            videoConstraints={videoConstraints}
+                                        />
+                                        <button onClick={this.capture}>Capture photo</button>
+                                    </When>
+                                    <When condition={visitLogStep === VISITLOGSTEPS.STEP3 && visitor_image !== null}>
+                                        <p><img src={visitor_image} /></p>
+                                        <button onClick={() => this.setState({ visitor_image: null })}>Retake photo</button>
+                                    </When>
                                 </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" onClick={this.props.onCloseHandle}>Cancel</button>
-                                {visitLogStep === VISITLOGSTEPS.STEP1 ?
-                                    <>
-                                        <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP2)}>Countinue</button>
-                                    </>
-                                    :
-                                    <button type="button" className="btn btn-primary" onClick={this.onSave} disabled={loading}>
+                                <When condition={visitLogStep === VISITLOGSTEPS.STEP1}>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP2)}>Countinue</button>
+                                </When>
+                                <When condition={visitLogStep === VISITLOGSTEPS.STEP2}>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP3)} disabled={loading}>
                                         {loading && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                        Save Changes</button>
-                                }
+                                        Save Changes
+                                    </button>
+                                </When>
                             </div>
                         </div>
                     </div>

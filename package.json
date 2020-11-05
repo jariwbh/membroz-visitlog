@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "cloudinary-react": "^1.6.7",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
@@ -20,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-select-search": "^2.2.0",
+    "react-webcam": "^5.2.1",
     "validator": "^13.1.17",
     "web-vitals": "^0.2.4"
   },
