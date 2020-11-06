@@ -304,9 +304,14 @@ class VisitLogEntryPopup extends Component {
                                     <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP2)}>Countinue</button>
                                 </When>
                                 <When condition={visitLogStep === VISITLOGSTEPS.STEP2}>
-                                    <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP3)} disabled={loading}>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.onStepChange(VISITLOGSTEPS.STEP3)}>
+                                        Countinue
+                                    </button>
+                                </When>
+                                <When condition={visitLogStep === VISITLOGSTEPS.STEP3}>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.onSave} disabled={loading}>
                                         {loading && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                        Save Changes
+                                        Check in
                                     </button>
                                 </When>
                             </div>
