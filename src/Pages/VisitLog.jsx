@@ -102,10 +102,11 @@ class VisitLog extends Component {
                 <span><img src={Image.billicon} onClick={() => console.log('gridActionTemplate event:', event)} style={{ cursor: 'pointer' }} /></span>
                 <span><img src={Image.billicon} onClick={() => console.log('gridActionTemplate event:', event)} style={{ cursor: 'pointer' }} /></span>
                 <span><img src={Image.billicon} onClick={() => console.log('gridActionTemplate event:', event)} style={{ cursor: 'pointer' }} /></span>
-                <mat-icon _ngcontent-c21="" class="mousechange button-eyes button-eyes-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="View Detail" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-6" cdk-describedby-host="">visibility</mat-icon>
-                <mat-icon _ngcontent-c21="" class="mousechange button-printer button-printer-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="Print Badge" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-7" cdk-describedby-host="">print</mat-icon>
-                <mat-icon _ngcontent-c21="" class="mousechange button-del button-del-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="Remove" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-8" cdk-describedby-host="">delete_outline</mat-icon>
-                <mat-icon _ngcontent-c21="" class="mousechange button-checkout button-checkout-hover mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted" mattooltip="Checkout User" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">exit_to_app</mat-icon>
+
+                <mat-icon _ngcontent-c21="" className="mousechange button-eyes button-eyes-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="View Detail" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-6" cdk-describedby-host="">visibility</mat-icon>
+                <mat-icon _ngcontent-c21="" className="mousechange button-printer button-printer-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="Print Badge" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-7" cdk-describedby-host="">print</mat-icon>
+                <mat-icon _ngcontent-c21="" className="mousechange button-del button-del-hover mat-icon notranslate material-icons mat-icon-no-color" mattooltip="Remove" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-8" cdk-describedby-host="">delete_outline</mat-icon>
+                <mat-icon _ngcontent-c21="" className="mousechange button-checkout button-checkout-hover mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted" mattooltip="Checkout User" role="img" aria-hidden="true" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">exit_to_app</mat-icon>
             </>
         );
     }

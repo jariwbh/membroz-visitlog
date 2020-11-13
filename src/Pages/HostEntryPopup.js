@@ -172,7 +172,7 @@ class HostEntryPopup extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.props.onCloseHandle}>Close</button>
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.props.onCloseHandle}>Close</button>
                                 <button type="button" className="btn btn-primary" onClick={this.onSave} disabled={loading}>
                                     {loading && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Save
